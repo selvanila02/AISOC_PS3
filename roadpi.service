@@ -1,0 +1,14 @@
+[Unit]
+Description=RoadPi YOLO Live Stream
+After=network.target
+
+[Service]
+User=pi
+WorkingDirectory=/home/pi
+ExecStartPre=/bin/sleep 5
+ExecStart=/home/pi/yolovenv/bin/python /home/pi/stream_yolo.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
